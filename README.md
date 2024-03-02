@@ -1,71 +1,64 @@
-# data_stone
+# Teste para vaga de FrontEnd para Data Stone
 
-This template should help get you started developing with Vue 3 in Vite.
+Normalmente eu documento tudo em inglês, por padrão de mercado e costume de empresas antigas, todavia, esse readme é em português porque o desafio da vaga veio em português.
 
-## Recommended IDE Setup
+## Desafio
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+> Você irá construir de um cadastro cliente simples e associação de produtos oferecidos ao mesmo.  
+>
+> A tela de **cadastro de produtos** deve conter os seguintes campos (nome, ativo(Sim ou Não)) e a de **clientes** (nome, documento, telefone,
+e-mail, ativo(Sim ou Não)) e outra tela para **associar os produtos** ao cliente com o nome do cliente e os produtos para associar.
+>  
+> Nossa ideia é que possamos disponibilizar para a área comercial um cadastro de clientes e uma forma de associação dos produtos que esse cliente tem
+disponível para utilizar em nosso site serviços. Para que possamos controlar a visualização do que nosso cliente possa usar em nossa plataforma.  
+>
+> Após os cadastros gostaríamos de ver uma **listagem com os produtos** cadastros com opção para editar e inativar/ativar e **listagem com todos os cliente** com as opções de edição, inativar/ativar e associar produtos
 
-## Type Support for `.vue` Imports in TS
+### Telas
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- Cadastro de Produtos
+  - Nome
+  - Ativo
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- Cadastro de Cliente
+  - Nome
+  - Documento
+  - Telefone
+  - E-mail
+  - Ativo
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- Associação de Produto <> Cliente
 
-## Customize configuration
+- Listagem de Produtos
+  - Opção para editar
+  - Opção para ativar/inativar
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- Listagem de Clientes
+  - Opção para Editar
+  - Opção para Ativar/Inativar
+  - Opção para Associar Produtos
 
-## Project Setup
+## Setup
 
-```sh
-npm install
-```
+`npm install && npm run dev`
 
-### Compile and Hot-Reload for Development
+(ou troque o `&&` por `;` caso o ambiente seja windows)
 
-```sh
-npm run dev
-```
+### Tests
 
-### Type-Check, Compile and Minify for Production
+Para rodar os testes do Playwright, primeiramente tenha certeza de que o projeto está instalado e rodando, depois instale os browsers com `npx playwright install`, dai rode os testes com `npm run test`
 
-```sh
-npm run build
-```
+## API Mock
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+TODO: Como iniciar
 
-```sh
-npm run test:unit
-```
+## Decisões do projeto
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+Comecei com o óbvio: setup do repo e da base do projeto. Na parte do desafio em si, preferi iniciar na UI porque ela é mais fácil de ser feita.
 
-```sh
-# Install browsers for the first run
-npx playwright install
+Depois, provavelmente, vou partir pras regras de negócio (login e permissionamento), API e testes.
 
-# When testing on CI, must build the project first
-npm run build
+### UI
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Como a descrição dizia telas diferentes, mas não rotas, optei por manter o mínimo possível de telas, pra evitar o salto do usuário, consequentemente diminuindo os loadings, e usar os cadastros e edições como popup na tela de listagem.  
+Com isso, inicio pela tela de listagem de clientes.
