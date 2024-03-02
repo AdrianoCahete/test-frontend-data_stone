@@ -9,9 +9,10 @@
     "preview": "vite preview",
     "build": "run-p type-check \"build-only {@}\" --",
     "build-only": "vite build",
-    "test": "npm run lint && npm run test:unit && npm run test:e2e",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint:commit": "commitlint --config commitlint.config.js",
     "format": "prettier --write src/",
+    "test": "npm run lint && npm run test:unit && npm run test:e2e",
     "test:unit": "vitest run",
     "test:e2e": "playwright test --pass-with-no-tests",
     "type-check": "vue-tsc --build --force"
