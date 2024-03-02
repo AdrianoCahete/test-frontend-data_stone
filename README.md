@@ -40,13 +40,17 @@ disponível para utilizar em nosso site serviços. Para que possamos controlar a
 
 ## Setup
 
-`npm install && npm run dev`
+`npm install && npm run prepare && npm run dev`
 
 (ou troque o `&&` por `;` caso o ambiente seja windows)
 
 ### Tests
 
 Para rodar os testes do Playwright, primeiramente tenha certeza de que o projeto está instalado e rodando, depois instale os browsers com `npx playwright install`, dai rode os testes com `npm run test`
+
+### Commits
+
+Os commits deverão seguir as regras [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/). Tanto o console, quanto o Github podem negar o commit caso ele não siga estas regras.
 
 ## API Mock
 
