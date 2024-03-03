@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-
-// defineProps<{
-//   msg: string
-// }>()
 </script>
 
 <template>
@@ -11,11 +7,14 @@ import { RouterLink } from 'vue-router'
     <RouterLink to="/" class="brand">
       <img alt="Logo" src="@/assets/logo.svg" />
     </RouterLink>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/produtos">Produtos</RouterLink>
-      <RouterLink to="/clientes">Clientes</RouterLink>
-    </nav>
+    <div class="header_nav">
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/produtos">Produtos</RouterLink>
+        <RouterLink to="/clientes">Clientes</RouterLink>
+      </nav>
+      <div class="header_nav-user-info">User</div>
+    </div>
   </header>
 </template>
 
@@ -37,32 +36,43 @@ header {
     }
   }
 
-  nav {
+  .header_nav {
     display: flex;
     align-items: center;
     height: 100%;
     font-size: 1.4rem;
 
-    > a {
+    nav {
       display: flex;
       align-items: center;
-      padding: 0 1rem;
-      height: inherit;
-      text-decoration: none;
-      border-top: 2px solid transparent;
-      border-bottom: 2px solid transparent;
-      transition: 0.5s ease-in-out all;
+      height: 100%;
+      font-size: 1.4rem;
 
-      &:hover {
-        background-color: #f2f2f2;
+      > a {
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+        height: inherit;
+        text-decoration: none;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
         transition: 0.5s ease-in-out all;
-      }
 
-      &.router-link-active:not(.brand) {
-        color: var(--brand-color);
-        border-bottom: 2px solid var(--brand-color);
-        pointer-events: none;
+        &:hover {
+          background-color: #f2f2f2;
+          transition: 0.5s ease-in-out all;
+        }
+
+        &.router-link-active:not(.brand) {
+          color: var(--brand-color);
+          border-bottom: 2px solid var(--brand-color);
+          pointer-events: none;
+        }
       }
+    }
+
+    .header_nav-user-info {
+      display: none; // Hidden by now
     }
   }
 }

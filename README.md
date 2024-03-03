@@ -69,7 +69,7 @@ Depois, provavelmente, vou partir pras regras de negócio (login e permissioname
 Já que a ideia é ver como o projeto é criado, analisando _"organização, semântica, estrutura, legibilidade e manutenibilidade do código"_, optei em não usar nenhuma lib de UI, mas normalmente eu optaria pelo Nuxt UI pro projeto geral. Provavelmente usarei o FormKit só pra validação dos forms.
 
 Como a descrição dizia telas diferentes, mas não rotas, optei por manter o mínimo possível de telas, pra evitar o salto do usuário, consequentemente diminuindo os loadings, e usar os cadastros e edições como popup na tela de listagem.  
-Com isso, inicio pela tela de listagem de clientes.
+Com isso, inicio pela tela de listagem de produtos, seguido pela de clientes.
 
 ### CSS
 
