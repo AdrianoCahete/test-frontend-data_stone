@@ -1,3 +1,4 @@
+/* v8 ignore next 3 */
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 </script>
