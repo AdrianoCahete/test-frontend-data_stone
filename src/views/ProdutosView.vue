@@ -5,6 +5,7 @@ import ButtonComponent from '../components/common/ButtonComponent.vue'
 import ModalComponent from '../components/common/ModalComponent.vue'
 
 const modalEditState = ref(false)
+const modalCreateState = ref(false)
 
 const productList = ref([
   {
@@ -21,7 +22,12 @@ const productList = ref([
 </script>
 
 <template>
-  <h1>Produtos</h1>
+  <div class="page_header">
+    <h1>Produtos</h1>
+    <div class="page_header-actions">
+      <ButtonComponent label="Adicionar Produto" @action="modalCreateState = true" />
+    </div>
+  </div>
   <div>
     <table>
       <thead>
@@ -70,4 +76,39 @@ const productList = ref([
       </form>
     </template>
   </ModalComponent>
+
+  <ModalComponent
+    :isOpen="modalCreateState"
+    @close="modalCreateState = false"
+    title="Adicionar Produto"
+  >
+    <template #content>
+      <form>
+        <div>
+          <label for="client">Nome</label>
+          <input name="client" type="text" />
+        </div>
+        <div>
+          <label for="active_state">Ativar?</label>
+          <select name="active_state">
+            <option value="yes">Sim</option>
+            <option value="no">Não</option>
+          </select>
+        </div>
+      </form>
+    </template>
+  </ModalComponent>
 </template>
+
+<style lang="scss" scoped>
+.page_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > &-actions {
+    display: flex;
+    align-items: center;
+  }
+}
+</style>

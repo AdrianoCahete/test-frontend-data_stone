@@ -6,6 +6,7 @@ import ModalComponent from '../components/common/ModalComponent.vue'
 
 const modalEditState = ref(false)
 const modalAssignState = ref(false)
+const modalCreateState = ref(false)
 
 const clientList = ref([
   {
@@ -28,7 +29,12 @@ const clientList = ref([
 </script>
 
 <template>
-  <h1>Clientes</h1>
+  <div class="page_header">
+    <h1>Clientes</h1>
+    <div class="page_header-actions">
+      <ButtonComponent label="Adicionar Cliente" @action="modalCreateState = true" />
+    </div>
+  </div>
   <div>
     <table>
       <thead>
@@ -104,6 +110,42 @@ const clientList = ref([
   </ModalComponent>
 
   <ModalComponent
+    :isOpen="modalCreateState"
+    @close="modalCreateState = false"
+    title="Adicionar Cliente"
+  >
+    <template #content>
+      <div>
+        <form>
+          <div>
+            <label for="client">Nome</label>
+            <input name="client" type="text" />
+          </div>
+          <div>
+            <label for="doc">Documento</label>
+            <input name="doc" type="text" />
+          </div>
+          <div>
+            <label for="tel">Telefone</label>
+            <input name="tel" type="tel" />
+          </div>
+          <div>
+            <label for="mail">Email</label>
+            <input name="mail" type="email" />
+          </div>
+          <div>
+            <label for="active_state">Ativar?</label>
+            <select name="active_state">
+              <option value="yes">Sim</option>
+              <option value="no">Não</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </template>
+  </ModalComponent>
+
+  <ModalComponent
     :isOpen="modalAssignState"
     @close="modalAssignState = false"
     title="Associar Produto"
@@ -126,3 +168,16 @@ const clientList = ref([
     </template>
   </ModalComponent>
 </template>
+
+<style lang="scss" scoped>
+.page_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > &-actions {
+    display: flex;
+    align-items: center;
+  }
+}
+</style>

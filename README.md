@@ -30,10 +30,12 @@ disponível para utilizar em nosso site serviços. Para que possamos controlar a
 - Associação de Produto <> Cliente
 
 - Listagem de Produtos
-  - Opção para editar
-  - Opção para ativar/inativar
+  - Opção para Criar
+  - Opção para Editar
+  - Opção para Ativar/Inativar
 
 - Listagem de Clientes
+- - Opção para Criar
   - Opção para Editar
   - Opção para Ativar/Inativar
   - Opção para Associar Produtos
@@ -44,18 +46,30 @@ disponível para utilizar em nosso site serviços. Para que possamos controlar a
 
 (ou troque o `&&` por `;` caso o ambiente seja windows)
 
-Ao rodar o `npm run dev`, automaticamente o servidor de mock da API é iniciado, junto ao front.
+Ao rodar o `npm run dev`, automaticamente o servidor de mock da API é iniciado, junto ao front. Se quiser rodar só o front, use `npm run dev:front`
 Caso queira algo específico, olhe a seção de API abaixo.
 
-### Tests
+## Tests
 
-Para rodar os testes do Playwright, primeiramente tenha certeza de que o projeto está instalado e rodando, depois instale os browsers com `npx playwright install`, dai rode os testes com `npm run test`
+Ao rodar `npm run test`, todos os testes vão rodar. São 3 tipos: unitários, end2end (UI) e lint.
+
+### End2End
+
+Para rodar os testes do Playwright (end to end), primeiramente tenha certeza de que o projeto está instalado e rodando, depois instale os browsers com `npx playwright install`, dai rode os testes com `npm run test`
 
 Atualmente está testando com o Chromium e o Safari (webkit).
 
-### Commits
+### Unitários
 
-Os commits deverão seguir as regras [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/). Tanto o console, quanto o Github podem negar o commit caso ele não siga estas regras.
+Os unitários são somente em cima dos componentes que recebem propriedades.   Components que são estáticos ou só existem pra facilitar o código não tem testes unitários (mas tem o end2end).
+
+### Lint
+
+O lint é feito em cima de todos os arquivos com as seguintes extensões: `.vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts`.
+
+## Commits
+
+Os commits deverão seguir as regras [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/). O commit será negado caso não passe nos testes. O Github pode negar também.
 
 ## API Mock
 
@@ -67,8 +81,9 @@ O API Mock escuta na porta `3100`.
 
 A edição das rotas fica na pasta `./mocks/routes` e é por arquivo. No topo do arquivo tem um comentário com a url da documentação.
 
-<http://localhost:3100/api/users>
-<http://localhost:3100/api/clients>
+Os endpoints atuais são:  
+<http://localhost:3100/api/users>  
+<http://localhost:3100/api/clients>  
 <http://localhost:3100/api/products>
 
 ### API Admin
