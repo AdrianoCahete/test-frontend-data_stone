@@ -34,6 +34,15 @@
   // Button
   --button-color-primary: var(--brand-color);
   --button-color-primary-hover: var(--brand-color-darken);
+
+  --button-color-secondary: var(--vt-c-indigo);
+  --button-color-secondary-hover: var(--vt-c-indigo);
+
+  --button-color-danger: var(--vt-c-red);
+  --button-color-danger-hover: var(--vt-c-red-dark);
+
+  --button-color-proceed: var(--vt-c-green);
+  --button-color-proceed-hover: var(--vt-c-green-dark);
 }
 
 /* semantic color variables for this project */
@@ -123,12 +132,12 @@ table {
   border-spacing: 0;
   border: 1px solid #ccc;
 
-  .table_align-right,
-  .table_actions {
+  .table_align-right {
     text-align: right;
   }
 
-  .table_align-center {
+  .table_align-center,
+  .table_actions {
     text-align: center;
   }
 
@@ -197,6 +206,75 @@ table {
           color: red;
         }
       }
+    }
+  }
+}
+
+// Form
+form {
+  & > div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}
+
+// Buttons
+button {
+  border: 0;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.3s ease-in-out all;
+
+  &:hover {
+    transition: 0.3s ease-in-out all;
+  }
+
+  & ~ button {
+    margin-left: 0.5rem;
+  }
+
+  // Types
+  &.btn_primary {
+    background-color: var(--button-color-primary);
+    color: #fff;
+
+    &:hover {
+      background-color: var(--button-color-primary-hover);
+    }
+  }
+
+  &.btn_secondary {
+    background-color: var(--button-color-secondary);
+
+    &:hover {
+      background-color: var(--button-color-secondary-hover);
+    }
+  }
+
+  &.btn_ghost {
+    background-color: transparent;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.btn_inactivate {
+    background-color: var(--button-color-danger);
+
+    &:hover {
+      background-color: var(--button-color-danger-hover);
+    }
+  }
+
+  &.btn_activate {
+    background-color: var(--button-color-proceed);
+
+    &:hover {
+      background-color: var(--button-color-proceed-hover);
     }
   }
 }
