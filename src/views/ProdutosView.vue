@@ -11,7 +11,7 @@ import ButtonComponent from '../components/common/ButtonComponent.vue'
         <tr>
           <th>Nome</th>
           <th>Ativo</th>
-          <th class="table_align-right">Ações</th>
+          <th class="table_align-center">Ações</th>
         </tr>
       </thead>
       <tbody>
