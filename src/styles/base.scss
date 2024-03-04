@@ -1,5 +1,10 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+  // Brand
+  --brand-color: rgba(7, 109, 204, 1);
+  --brand-color-lightner: rgb(66, 156, 240);
+  --brand-color-darken: rgb(4, 64, 121);
+
   --vt-c-white: rgba(255, 255, 255, 1);
   --vt-c-white-soft: rgba(248, 248, 248, 1);
   --vt-c-white-mute: rgba(242, 242, 242, 1);
@@ -9,6 +14,15 @@
   --vt-c-black-mute: rgba(40, 40, 40, 1);
 
   --vt-c-indigo: rgba(44, 62, 80, 1);
+
+  --vt-c-red: rgb(196, 73, 73);
+  --vt-c-red-dark: rgb(105, 27, 27);
+
+  --vt-c-green: rgb(93, 196, 73);
+  --vt-c-green-dark: rgb(27, 105, 31);
+
+  --vt-c-cyan: rgb(73, 171, 196);
+  --vt-c-cyan-dark: rgb(27, 63, 105);
 
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
@@ -20,11 +34,6 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
-  // Brand
-  --brand-color: rgba(7, 109, 204, 1);
-  --brand-color-lightner: rgb(66, 156, 240);
-  --brand-color-darken: rgb(4, 64, 121);
-
   // Base
   --content-margin: 1rem;
 
@@ -35,8 +44,8 @@
   --button-color-primary: var(--brand-color);
   --button-color-primary-hover: var(--brand-color-darken);
 
-  --button-color-secondary: var(--vt-c-indigo);
-  --button-color-secondary-hover: var(--vt-c-indigo);
+  --button-color-secondary: var(--vt-c-cyan);
+  --button-color-secondary-hover: var(--vt-c-cyan-dark);
 
   --button-color-danger: var(--vt-c-red);
   --button-color-danger-hover: var(--vt-c-red-dark);
@@ -217,6 +226,11 @@ form {
     flex-direction: column;
     margin-bottom: 1rem;
   }
+
+  input,
+  select {
+    height: 3rem;
+  }
 }
 
 // Buttons
@@ -248,9 +262,11 @@ button {
 
   &.btn_secondary {
     background-color: var(--button-color-secondary);
+    color: #fff;
 
     &:hover {
       background-color: var(--button-color-secondary-hover);
+      color: #fff;
     }
   }
 
@@ -264,6 +280,7 @@ button {
 
   &.btn_inactivate {
     background-color: var(--button-color-danger);
+    color: #fff;
 
     &:hover {
       background-color: var(--button-color-danger-hover);
@@ -272,6 +289,7 @@ button {
 
   &.btn_activate {
     background-color: var(--button-color-proceed);
+    color: #fff;
 
     &:hover {
       background-color: var(--button-color-proceed-hover);

@@ -17,7 +17,7 @@ const clientList = ref([
     active: true
   },
   {
-    id: 0,
+    id: 1,
     name: 'Cliente 2',
     docs: '222.222.222-22',
     phone: '22 2222-2222',
@@ -41,7 +41,7 @@ const clientList = ref([
           <th class="table_align-center">Ações</th>
         </tr>
       </thead>
-      <tbody v-for="item in clientList" :todo="item" :key="item.id">
+      <tbody v-for="item in clientList" :key="item.id">
         <tr :class="item.active ? '' : 'table_item-inactive'">
           <td>{{ item.name }}</td>
           <td>{{ item.docs }}</td>
@@ -52,8 +52,15 @@ const clientList = ref([
           </td>
           <td class="table_actions">
             <ButtonComponent label="Editar" @action="modalEditState = true" />
-            <ButtonComponent label="Associar Produtos" @action="modalAssignState = true" />
-            <ButtonComponent label="Inativar" type="inactivate" />
+            <ButtonComponent
+              label="Associar Produtos"
+              @action="modalAssignState = true"
+              type="secondary"
+            />
+            <ButtonComponent
+              :label="item.active ? 'Ativar' : 'Inativar'"
+              :type="item.active ? 'activate' : 'inactivate'"
+            />
           </td>
         </tr>
       </tbody>
@@ -70,7 +77,7 @@ const clientList = ref([
           </div>
           <div>
             <label for="doc">Documento</label>
-            <input name="doc" type="number" value="111.111.111-11" />
+            <input name="doc" type="text" value="111.111.111-11" />
           </div>
           <div>
             <label for="tel">Telefone</label>
