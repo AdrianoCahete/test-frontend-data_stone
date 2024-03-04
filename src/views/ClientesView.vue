@@ -41,8 +41,12 @@ const clientList = ref([
           <th class="table_align-center">Ações</th>
         </tr>
       </thead>
-      <tbody v-for="item in clientList" :key="item.id">
-        <tr :class="item.active ? '' : 'table_item-inactive'">
+      <tbody>
+        <tr
+          v-for="item in clientList"
+          :key="item.id"
+          :class="item.active ? '' : 'table_item-inactive'"
+        >
           <td>{{ item.name }}</td>
           <td>{{ item.docs }}</td>
           <td>{{ item.phone }}</td>
