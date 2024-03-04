@@ -53,7 +53,7 @@ const productList = ref([
     </table>
   </div>
 
-  <ModalComponent :isOpen="modalEditState" @close="modalEditState = false" title="Cliente">
+  <ModalComponent :isOpen="modalEditState" @close="modalEditState = false" title="Produto 1">
     <template #content>
       <div>
         <form>

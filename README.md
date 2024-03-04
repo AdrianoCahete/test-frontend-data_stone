@@ -44,6 +44,9 @@ disponível para utilizar em nosso site serviços. Para que possamos controlar a
 
 (ou troque o `&&` por `;` caso o ambiente seja windows)
 
+Ao rodar o `npm run dev`, automaticamente o servidor de mock da API é iniciado, junto ao front.
+Caso queira algo específico, olhe a seção de API abaixo.
+
 ### Tests
 
 Para rodar os testes do Playwright, primeiramente tenha certeza de que o projeto está instalado e rodando, depois instale os browsers com `npx playwright install`, dai rode os testes com `npm run test`
@@ -56,7 +59,21 @@ Os commits deverão seguir as regras [Conventional Commit](https://www.conventio
 
 ## API Mock
 
-TODO: Como iniciar
+Ao rodar o `npm run dev`, o servidor da API é automaticamente iniciado, mas caso queira rodar o mock separadamente, rode `npm run api`.
+
+O API Mock escuta na porta `3100`.
+
+### Rotas
+
+A edição das rotas fica na pasta `./mocks/routes` e é por arquivo. No topo do arquivo tem um comentário com a url da documentação.
+
+<http://localhost:3100/api/users>
+<http://localhost:3100/api/clients>
+<http://localhost:3100/api/products>
+
+### API Admin
+
+<http://localhost:3510/docs>
 
 ## Decisões do projeto
 

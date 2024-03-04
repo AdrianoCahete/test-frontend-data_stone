@@ -1,0 +1,10 @@
+collections:
+  selected: 'base'
+
+log: 'debug'
+
+plugins:
+  register: ['plugin-admin-api']
+
+  adminApi:
+    port: 3510
