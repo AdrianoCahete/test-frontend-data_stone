@@ -1,0 +1,6 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/
+blank_issues_enabled: false
+contact_links:
+  - name: My Portfolio
+    url: https://adrianocahete.dev/
+    about: This is a test repo for a job. No need to create issues.

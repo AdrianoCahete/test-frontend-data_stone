@@ -55,21 +55,19 @@ const productList = ref([
 
   <ModalComponent :isOpen="modalEditState" @close="modalEditState = false" title="Produto 1">
     <template #content>
-      <div>
-        <form>
-          <div>
-            <label for="client">Nome</label>
-            <input name="client" type="text" value="Produto 1" />
-          </div>
-          <div>
-            <label for="active_state">Ativo?</label>
-            <select name="active_state">
-              <option value="yes">Sim</option>
-              <option value="no">Não</option>
-            </select>
-          </div>
-        </form>
-      </div>
+      <form>
+        <div>
+          <label for="client">Nome</label>
+          <input name="client" type="text" value="Produto 1" />
+        </div>
+        <div>
+          <label for="active_state">Ativo?</label>
+          <select name="active_state">
+            <option value="yes">Sim</option>
+            <option value="no">Não</option>
+          </select>
+        </div>
+      </form>
     </template>
   </ModalComponent>
 </template>

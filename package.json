@@ -18,6 +18,7 @@
     "test": "npm run lint && npm run test:unit && npm run test:e2e",
     "test:unit": "vitest run",
     "test:e2e": "playwright test --pass-with-no-tests",
+    "test:coverage": "vitest run --coverage",
     "type-check": "vue-tsc --build --force",
     "api": "mocks-server"
   },

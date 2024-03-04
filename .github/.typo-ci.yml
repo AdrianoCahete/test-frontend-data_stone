@@ -1,0 +1,26 @@
+dictionaries:
+  - pt_BR
+  - en
+
+excluded_files:
+  - 'node_modules/**/*'
+  - '*.yaml'
+  - '*.yml'
+  - '*.min.css'
+  - '*.css.map'
+  - '*.min.js'
+  - '*.js.map'
+  - 'CODEOWNERS'
+  - '*.scss'
+  - 'package-lock.json'
+  - '.typo-ci.yml'
+  - '.github/.typo-ci.yml'
+  - '.github/spellcheck/*'
+  - '.vscode/extensions.json'
+  - '.vscode/settings.json'
+  - '.commitlintrc.json'
+
+excluded_words:
+  - typoci
+
+spellcheck_filenames: true
