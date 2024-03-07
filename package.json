@@ -1,8 +1,10 @@
 {
   "name": "data_stone",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Teste para vaga de FrontEnd para Data Stone",
   "author": "Adriano Cahete",
+  "email": "me@adrianocahete.dev",
+  "url": "https://adrianocahete.dev/",
   "private": true,
   "type": "module",
   "scripts": {
