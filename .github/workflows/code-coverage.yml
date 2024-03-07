@@ -7,7 +7,7 @@ on:
 jobs:
   test-coverage:
     name: Run Test Coverage
-    runs-on: [self-hosted, linux, x64, ubuntu-latest]
+    runs-on: [linux, x64, ubuntu-latest]
 
     permissions:
       contents: read
