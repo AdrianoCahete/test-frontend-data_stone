@@ -18,24 +18,23 @@ const PRODUCTS = [
 
 module.exports = [
   {
-    id: 'get-products', // route id
-    url: '/api/products', // url in express format
-    method: 'GET', // HTTP method
+    id: 'get-products',
+    url: '/api/products',
+    method: 'GET',
     variants: [
       {
-        id: 'success', // variant id
-        type: 'json', // variant handler id
+        id: 'success',
+        type: 'json',
         options: {
-          status: 200, // status to send
-          body: PRODUCTS // body to send
+          status: 200,
+          body: PRODUCTS
         }
       },
       {
-        id: 'error', // variant id
-        type: 'json', // variant handler id
+        id: 'error',
+        type: 'json',
         options: {
-          status: 400, // status to send
-          // body to send
+          status: 400,
           body: {
             message: 'Error'
           }
@@ -44,23 +43,36 @@ module.exports = [
     ]
   },
   {
-    id: 'get-product', // route id
-    url: '/api/products/:id', // url in express format
-    method: 'GET', // HTTP method
+    id: 'create-product',
+    url: '/api/products/new',
+    method: 'POST',
     variants: [
       {
-        id: 'success', // variant id
-        type: 'json', // variant handler id
+        id: 'success',
+        type: 'status',
         options: {
-          status: 200, // status to send
-          body: PRODUCTS[0] // body to send
+          status: 201
+        }
+      }
+    ]
+  },
+  {
+    id: 'get-product',
+    url: '/api/products/:id',
+    method: 'GET',
+    variants: [
+      {
+        id: 'success',
+        type: 'json',
+        options: {
+          status: 200,
+          body: PRODUCTS[0]
         }
       },
       {
-        id: 'real', // variant id
-        type: 'middleware', // variant handler id
+        id: 'real',
+        type: 'middleware',
         options: {
-          // Express middleware to execute
           middleware: (req, res) => {
             const productId = req.params.id
             const product = PRODUCTS.find((userData) => userData.id === Number(productId))

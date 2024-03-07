@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 
 import ButtonComponent from '../components/common/ButtonComponent.vue'
 import ModalComponent from '../components/common/ModalComponent.vue'
@@ -7,18 +7,15 @@ import ModalComponent from '../components/common/ModalComponent.vue'
 const modalEditState = ref(false)
 const modalCreateState = ref(false)
 
-const productList = ref([
-  {
-    id: 0,
-    name: 'Produto 1',
-    active: true
-  },
-  {
-    id: 1,
-    name: 'Produto 2',
-    active: false
-  }
-])
+const API_URL = `http://localhost:3100/api/`
+
+const apiEndpoint = 'products'
+const productList = ref<Array<{ id: number; name: string; active: boolean }>>()
+
+watchEffect(async () => {
+  const url = `${API_URL}${apiEndpoint}`
+  productList.value = await (await fetch(url)).json()
+})
 </script>
 
 <template>

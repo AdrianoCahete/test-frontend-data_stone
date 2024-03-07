@@ -62,6 +62,20 @@ module.exports = [
     ]
   },
   {
+    id: 'create-user',
+    url: '/api/users/new',
+    method: 'POST',
+    variants: [
+      {
+        id: 'success',
+        type: 'status',
+        options: {
+          status: 201
+        }
+      }
+    ]
+  },
+  {
     id: 'get-user', // route id
     url: '/api/users/:id', // url in express format
     method: 'GET', // HTTP method

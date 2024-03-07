@@ -1,7 +1,8 @@
-collections:
-  selected: 'base'
+mock:
+  collections:
+    selected: 'base'
 
-log: 'debug'
+log: 'verbose'
 
 plugins:
   register: ['plugin-admin-api']

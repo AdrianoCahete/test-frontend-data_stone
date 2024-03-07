@@ -3,6 +3,7 @@
 // https://mocks-server.org/docs/usage/routes
 
 // Clients data
+// Com a api rodando no console, só trocar as infos aqui e dar relod na página. :)
 const CLIENTS = [
   {
     id: 0,
@@ -19,29 +20,36 @@ const CLIENTS = [
     phone: '22 2222-2222',
     mail: '22@22.com',
     active: false
+  },
+  {
+    id: 2,
+    name: 'Cliente 3',
+    docs: '333.333.333-33',
+    phone: '33 3333-3333',
+    mail: '33@33.com',
+    active: true
   }
 ]
 
 module.exports = [
   {
-    id: 'get-clients', // route id
-    url: '/api/clients', // url in express format
-    method: 'GET', // HTTP method
+    id: 'get-clients',
+    url: '/api/clients',
+    method: 'GET',
     variants: [
       {
-        id: 'success', // variant id
-        type: 'json', // variant handler id
+        id: 'success',
+        type: 'json',
         options: {
-          status: 200, // status to send
-          body: CLIENTS // body to send
+          status: 200,
+          body: CLIENTS
         }
       },
       {
-        id: 'error', // variant id
-        type: 'json', // variant handler id
+        id: 'error',
+        type: 'json',
         options: {
-          status: 400, // status to send
-          // body to send
+          status: 400,
           body: {
             message: 'Error'
           }
@@ -49,24 +57,39 @@ module.exports = [
       }
     ]
   },
+
   {
-    id: 'get-client', // route id
-    url: '/api/clients/:id', // url in express format
-    method: 'GET', // HTTP method
+    id: 'create-client',
+    url: '/api/clients/new',
+    method: 'POST',
     variants: [
       {
-        id: 'success', // variant id
-        type: 'json', // variant handler id
+        id: 'success',
+        type: 'status',
         options: {
-          status: 200, // status to send
-          body: CLIENTS[0] // body to send
+          status: 201
+        }
+      }
+    ]
+  },
+
+  {
+    id: 'get-client',
+    url: '/api/clients/:id',
+    method: 'GET',
+    variants: [
+      {
+        id: 'success',
+        type: 'json',
+        options: {
+          status: 200,
+          body: CLIENTS[0]
         }
       },
       {
-        id: 'real', // variant id
-        type: 'middleware', // variant handler id
+        id: 'real',
+        type: 'middleware',
         options: {
-          // Express middleware to execute
           middleware: (req, res) => {
             const userId = req.params.id
             const user = CLIENTS.find((userData) => userData.id === Number(userId))

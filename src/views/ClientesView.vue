@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 
 import ButtonComponent from '../components/common/ButtonComponent.vue'
 import ModalComponent from '../components/common/ModalComponent.vue'
@@ -8,24 +8,18 @@ const modalEditState = ref(false)
 const modalAssignState = ref(false)
 const modalCreateState = ref(false)
 
-const clientList = ref([
-  {
-    id: 0,
-    name: 'Cliente 1',
-    docs: '111.111.111-11',
-    phone: '11 1111-1111',
-    mail: '11@11.com',
-    active: true
-  },
-  {
-    id: 1,
-    name: 'Cliente 2',
-    docs: '222.222.222-22',
-    phone: '22 2222-2222',
-    mail: '22@22.com',
-    active: false
-  }
-])
+const API_URL = `http://localhost:3100/api/`
+
+const apiEndpoint = 'clients'
+const clientList =
+  ref<
+    Array<{ name: string; id: number; docs: string; phone: string; mail: string; active: boolean }>
+  >()
+
+watchEffect(async () => {
+  const url = `${API_URL}${apiEndpoint}`
+  clientList.value = await (await fetch(url)).json()
+})
 </script>
 
 <template>
