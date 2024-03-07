@@ -1,12 +1,13 @@
 {
   "recommendations": [
-    "Vue.vscode-typescript-vue-plugin",
     "ms-playwright.playwright",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "editorconfig.editorconfig",
     "joshbolduc.commitlint",
     "stylelint.vscode-stylelint",
-    "ban.spellright"
+    "ban.spellright",
+    "vue.volar",
+    "vitest.explorer"
   ]
 }
